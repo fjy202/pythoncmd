@@ -1,6 +1,6 @@
 import os,sys
 class __main__:
-    def __getattr__(self,attr):
+    def __getattribute__(self,attr):
         class _cmd:
             def __init__(self,command):
                 self.cmd=command
@@ -11,5 +11,5 @@ class __main__:
             def __repr__(self):
                 return '<cmd object command='+self.cmd+'>'
         return _cmd(attr)
-sys.modules['pythoncmd']=__main__()
+sys.modules[__name__]=__main__()
 
